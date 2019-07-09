@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@color/cardBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    card_view:cardCornerRadius="@dimen/card_corner_radius"
+    card_view:cardElevation="@dimen/card_elevation"
+    card_view:contentPadding="@dimen/card_content_padding">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/note_image_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/note_controls_linear_layout"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_baseline_note" />
+
+        <LinearLayout
+            android:id="@+id/note_controls_linear_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:id="@+id/edit_image_view"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_baseline_edit" />
+
+            <ImageView
+                android:id="@+id/delete_note_image_view"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_baseline_delete" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/note_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/note_controls_linear_layout"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_toEndOf="@id/note_image_view"
+            android:layout_toRightOf="@id/note_image_view"
+            android:maxLines="1"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#232F34"
+            android:textStyle="bold"
+            tools:text="Note Name" />
+
+        <LinearLayout
+            android:id="@+id/trip_start_point_linear_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/note_name_text_view"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_toEndOf="@id/note_image_view"
+            android:layout_toRightOf="@id/note_image_view">
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_round_lens" />
+
+            <TextView
+                android:id="@+id/note_date_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:maxLines="1"
+                android:textColor="#232F34"
+                android:textSize="14sp"
+                tools:text="Note Date" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/trip_end_point_linear_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/trip_start_point_linear_layout"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/note_image_view"
+            android:layout_toRightOf="@id/note_image_view">
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_round_lens" />
+
+            <TextView
+                android:id="@+id/note_time_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:maxLines="1"
+                android:textColor="#232F34"
+                android:textSize="14sp"
+                tools:text="Note Time" />
+
+        </LinearLayout>
+
+        <Switch
+            android:id="@+id/priority_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trip_end_point_linear_layout"
+            android:text="Priority" />
+
+        <TextView
+            android:id="@+id/priority_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/priority_switch"
+            android:layout_alignBottom="@+id/priority_switch"
+            android:layout_marginTop="3dp"
+            android:layout_marginStart="3dp"
+            android:layout_toEndOf="@+id/priority_switch"
+            android:layout_toRightOf="@+id/priority_switch"
+            android:text="Low"
+            android:textColor="#232F34"
+            android:layout_marginLeft="2dp" />
+
+        <Button
+            android:id="@+id/finish_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="0dp"
+            android:background="@color/colorPrimary"
+            android:text="Finished" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
