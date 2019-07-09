@@ -60,7 +60,7 @@ public class UpcomingNotesFragment extends Fragment {
         adapter = new NotesAdapter(this, getActivity(), notes);
         adapter.updateList(notes);
         recyclerView.setAdapter(adapter);
-
+        /*
         AndroidNetworking.get(NetworkRouter.buildURLRequest("getAllUpcoming"))
                 .addQueryParameter("userId", "1")
                 .addHeaders("Content-Type", "application/json")
@@ -84,6 +84,7 @@ public class UpcomingNotesFragment extends Fragment {
                         System.out.println(error);
                     }
                 });
+        */
     }
 
     public void getData(ArrayList<NoteDTO> noteDTOS) {

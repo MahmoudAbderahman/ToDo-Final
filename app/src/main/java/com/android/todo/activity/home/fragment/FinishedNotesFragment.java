@@ -51,7 +51,7 @@ public class FinishedNotesFragment extends Fragment {
         adapter = new NotesAdapter(this, getActivity(), notes);
         adapter.updateList(notes);
         recyclerView.setAdapter(adapter);
-        loadPageContent();
+        //loadPageContent();
 
     }
 
