@@ -62,6 +62,7 @@ public class FinishedNotesFragment extends Fragment {
     }
 
     public void loadPageContent() {
+        /*
         AndroidNetworking.get(NetworkRouter.buildURLRequest("getAllFinished"))
                 .addQueryParameter("userId", "1")
                 .addHeaders("Content-Type", "application/json")
@@ -85,6 +86,7 @@ public class FinishedNotesFragment extends Fragment {
                         System.out.println(error);
                     }
                 });
+                */
     }
 
 
