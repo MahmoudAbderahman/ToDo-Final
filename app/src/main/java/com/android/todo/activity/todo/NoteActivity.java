@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ import com.android.todo.utils.EditTextTimePicker;
 import com.android.todo.utils.SharedPreferencesUtility;
 import com.android.todo.utils.Utility;
 
+import java.sql.SQLOutput;
 import java.util.Date;
 
 public class NoteActivity extends AppCompatActivity implements NoteDelegate {
@@ -145,7 +147,17 @@ public class NoteActivity extends AppCompatActivity implements NoteDelegate {
         noteDTO.setNoteName(mNoteNameEditText.getText().toString());
         noteDTO.setNoteDesc(mNoteDescEditText.getText().toString());
         noteDTO.setNotePriority(priority);
-        noteDTO.setNoteDate(timePicker.getPickedDate(datePicker.getPickedDate()));
+
+
+
+        EditTextDatePicker.DateDTO tp = datePicker.getPickedDate();
+
+
+
+        Long dp = timePicker.getPickedDate(tp);
+
+        noteDTO.setNoteDate(dp);
+
 
         UserNote userNote = new UserNote();
         userNote.setNote(noteDTO);

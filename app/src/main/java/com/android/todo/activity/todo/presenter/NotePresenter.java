@@ -32,6 +32,7 @@ public class NotePresenter {
 
     public void addNewNote(Context mContext, final UserNote userNote) {
 
+        /*
         // add note on server
         JSONObject jsonObject = new JSONObject();
         try {
@@ -88,6 +89,11 @@ public class NotePresenter {
             notesDataBaseManager.insert(note, userNote.getUserId());
             view.noteAddedSuccessfully();
         }
+        */
+        //add note in SQLite DB
+        NoteDTO note = userNote.getNote();
+        notesDataBaseManager.insert(note, userNote.getUserId());
+        view.noteAddedSuccessfully();
     }
 
     public void editNote(UserNote userNote, int noteId) {
@@ -95,6 +101,7 @@ public class NotePresenter {
         // update note in SQLite DB
         notesDataBaseManager.update(noteId, userNote.getNote(), userNote.getUserId());
 
+        /*
         // update note on server
         JSONObject noteJSON = new JSONObject();
         try {
@@ -130,5 +137,7 @@ public class NotePresenter {
                         view.showToast(String.valueOf(anError.getErrorCode()));
                     }
                 });
+                */
     }
+
 }

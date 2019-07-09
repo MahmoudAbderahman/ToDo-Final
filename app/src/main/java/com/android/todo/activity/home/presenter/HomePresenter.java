@@ -37,7 +37,7 @@ public class HomePresenter {
     public void fetchData(){
         // fetching data from SQLite DB
         localNotes = notesDataBaseManager.fetchAll(1);
-
+        /*
         // fetching data from server
         AndroidNetworking.get(NetworkRouter.buildURLRequest("getNotes"))
                 .addQueryParameter("userId", "1")
@@ -60,9 +60,10 @@ public class HomePresenter {
                     }
                 });
 
-        if(localNotes.size() >= notes.size()){
+        if(localNotes.size() >= notes.size()) {
             // display local notes
-             view.fetchedData(localNotes);
+            view.fetchedData(localNotes);
+
 
             // delete data on the server
             AndroidNetworking.delete(NetworkRouter.buildURLRequest("deleteAllNotes"))
@@ -103,15 +104,17 @@ public class HomePresenter {
                             System.out.println(error);
                         }
                     });
-        }else{
+        }
+
 
             // display remote data
             view.fetchedData(notes);
             // delete all local data
             notesDataBaseManager.deleteAll(1);
             // save all remote data locally
-            notesDataBaseManager.insertAll(notes,1);
-        }
+            notesDataBaseManager.insertAll(notes, 1);
+            */
+
     }
 
 

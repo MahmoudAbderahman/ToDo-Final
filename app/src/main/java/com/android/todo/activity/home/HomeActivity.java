@@ -63,8 +63,6 @@ public class HomeActivity extends AppCompatActivity
     private static final String TAG = "HomeActivity";
     private ArrayList<NoteDTO> localNotes = new ArrayList<>();
     private NotesDataBaseManager notesDataBaseManager;
-    private ArrayList<UserDTO> localUsers = new ArrayList<>();
-    private HomePresenter homePresenter;
 
     public FinishedNotesFragment finishedNoteFragment;
 
@@ -138,6 +136,7 @@ public class HomeActivity extends AppCompatActivity
         // TabLayout configuration
         tabLayout.setSelectedTabIndicatorColor(Color.WHITE);
         tabLayout.setupWithViewPager(viewPager);
+        /*
         if (!Utility.isNetworkAvailable(this)) {
             showConnectivityAlert();
 
@@ -148,7 +147,19 @@ public class HomeActivity extends AppCompatActivity
                 setupViewPagerInOnlineMode(viewPager);
                 Toast.makeText(this, "you don't have any notes yet!", Toast.LENGTH_LONG).show();
             }
-        } else {
+        }
+        */
+        if (!Utility.isNetworkAvailable(this)) {
+            showConnectivityAlert();
+        }
+
+        localNotes = notesDataBaseManager.fetchAll(SharedPreferencesUtility.getUserId(this));
+
+        setupViewPagerInOfflineMode(viewPager);
+
+
+        /*
+        else {
             // check network availability
             AndroidNetworking.get(NetworkRouter.buildURLRequest("getNotes"))
                     .addHeaders("Content-Type", "application/json")
@@ -177,6 +188,7 @@ public class HomeActivity extends AppCompatActivity
                     });
             Toast.makeText(this, "Connected", Toast.LENGTH_LONG).show();
         }
+        */
     }
 
     private void showConnectivityAlert() {

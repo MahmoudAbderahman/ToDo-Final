@@ -119,7 +119,7 @@ public class NotesDataBaseManager {
             noteDTO.setNoteName(cursor.getString(1));
             noteDTO.setNoteDesc(cursor.getString(2));
             noteDTO.setNotePriority(cursor.getInt(3));
-
+            noteDTO.setNoteDate(cursor.getLong(4));
             noteDTOS.add(noteDTO);
         }
         return noteDTOS;
@@ -145,7 +145,7 @@ public class NotesDataBaseManager {
             noteDTO.setNoteName(cursor.getString(1));
             noteDTO.setNoteDesc(cursor.getString(2));
             noteDTO.setNotePriority(cursor.getInt(3));
-
+            noteDTO.setNoteDate(cursor.getLong(4));
             noteDTOS.add(noteDTO);
         }
         return noteDTOS;
@@ -182,7 +182,7 @@ public class NotesDataBaseManager {
         contentValues.put(NotesContract.NotesEntry.COLUMN_NOTE_DESCRIPTION, note.getNoteDesc());
         contentValues.put(NotesContract.NotesEntry.COLUMN_NOTE_ISDONE, note.getNoteState());
         contentValues.put(NotesContract.NotesEntry.COLUMN_NOTE_PRIORITY, note.getNotePriority());
-        contentValues.put(NotesContract.NotesEntry.COLUMN_NOTE_DATE, String.valueOf(note.getNoteDate()));
+        contentValues.put(NotesContract.NotesEntry.COLUMN_NOTE_DATE, Long.valueOf(note.getNoteDate()));
         String[] args = new String[]{String.valueOf(noteId), String.valueOf(userId)};
 
         int i = database.update(NotesContract.NotesEntry.TABLE_NAME, contentValues, NotesContract.NotesEntry.COLUMN_NOTE_ID + " =? AND " + NotesContract.NotesEntry.COLUMN_USER_ID + " =?", args);

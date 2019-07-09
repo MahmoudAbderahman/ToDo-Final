@@ -238,6 +238,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
             //update note in SQLite DB
             notesDataBaseManager.update(noteDTO.getNoteId(), noteDTO, SharedPreferencesUtility.getUserId(mContext));
             updateList(notes);
+            /*
             JSONObject noteJSON = new JSONObject();
             noteJSON.put("noteId", noteDTO.getNoteId());
             noteJSON.put("noteName", noteDTO.getNoteName());
@@ -267,6 +268,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
                             System.out.println(error.getErrorBody());
                         }
                     });
+                    */
         }
     }
 }
