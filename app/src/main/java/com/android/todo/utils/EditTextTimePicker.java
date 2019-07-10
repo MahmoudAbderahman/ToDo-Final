@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
+import com.android.todo.activity.todo.NoteActivity;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -53,7 +55,9 @@ public class EditTextTimePicker implements View.OnClickListener, TimePickerDialo
 
     public long getPickedDate(EditTextDatePicker.DateDTO time){
         Calendar c = Calendar.getInstance();
+
         c.set(time.getYear(), time.getMonth(), time.getDayOfMonth(),hourOfDay,minute);
         return c.getTimeInMillis();
     }
+
 }

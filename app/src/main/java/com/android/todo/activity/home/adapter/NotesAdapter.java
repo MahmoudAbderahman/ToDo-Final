@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 
 import com.android.todo.R;
 import com.android.todo.activity.home.HomeActivity;
+import com.android.todo.activity.home.fragment.FinishedNotesFragment;
 import com.android.todo.activity.todo.NoteActivity;
 import com.android.todo.model.dto.NoteDTO;
 import com.android.todo.model.sqlite.NotesDataBaseManager;
@@ -149,6 +151,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
                         e.printStackTrace();
                     }
                     removeAt(position);
+
                     ((HomeActivity) mContext).finishedNoteFragment.loadPageContent();
                     break;
                 case R.id.priority_switch:
@@ -169,6 +172,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
                 case R.id.edit_image_view:
                     NoteDTO note = notes.get(getAdapterPosition());
                     redirectNoteScreen(note);
+
                     break;
                 case R.id.delete_note_image_view:
                     new AlertDialog.Builder(mContext)

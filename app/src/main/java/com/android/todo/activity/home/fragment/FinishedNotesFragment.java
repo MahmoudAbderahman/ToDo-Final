@@ -51,7 +51,8 @@ public class FinishedNotesFragment extends Fragment {
         adapter = new NotesAdapter(this, getActivity(), notes);
         adapter.updateList(notes);
         recyclerView.setAdapter(adapter);
-        //loadPageContent();
+
+        loadPageContent();
 
     }
 
@@ -62,7 +63,10 @@ public class FinishedNotesFragment extends Fragment {
     }
 
     public void loadPageContent() {
-        /*
+
+        adapter.updateList(notes);
+        recyclerView.setAdapter(adapter);
+    /*
         AndroidNetworking.get(NetworkRouter.buildURLRequest("getAllFinished"))
                 .addQueryParameter("userId", "1")
                 .addHeaders("Content-Type", "application/json")

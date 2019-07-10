@@ -12,7 +12,7 @@ public class Validation {
     }
 
     public static boolean isValidPassword(String password) {
-        return password.length() >= PASSWORD_LENGTH;
+        return password.length() == PASSWORD_LENGTH;
     }
 
     public static boolean isValidConfirmPassword(String password, String confirmPassword) {

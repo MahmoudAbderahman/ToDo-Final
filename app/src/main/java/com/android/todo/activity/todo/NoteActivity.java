@@ -2,6 +2,7 @@ package com.android.todo.activity.todo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,6 +26,7 @@ import com.android.todo.utils.SharedPreferencesUtility;
 import com.android.todo.utils.Utility;
 
 import java.sql.SQLOutput;
+import java.util.Calendar;
 import java.util.Date;
 
 public class NoteActivity extends AppCompatActivity implements NoteDelegate {
@@ -61,16 +63,16 @@ public class NoteActivity extends AppCompatActivity implements NoteDelegate {
             String noteDesc = getIntent().getExtras().getString("noteDesc");
             int notePriority = getIntent().getExtras().getInt("notePriority");
             String date = Utility.formatDate(new Date(getIntent().getExtras().getLong("noteDate")));
-
+            System.out.println(date);
             mNoteNameEditText.setText(noteName);
             mNoteDescEditText.setText(noteDesc);
             spinner.setSelection(notePriority);
             mNoteDueDateEditText.setText(date);
             String time = Utility.formatTime(new Date(getIntent().getExtras().getLong("noteDate")));
             mNoteTimeEditText.setText(time);
+            System.out.println(time);
         }
     }
-
     public void addItemsOnSpinner() {
         spinner = findViewById(R.id.spinner);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this,
@@ -149,7 +151,9 @@ public class NoteActivity extends AppCompatActivity implements NoteDelegate {
         noteDTO.setNoteName(mNoteNameEditText.getText().toString());
         noteDTO.setNoteDesc(mNoteDescEditText.getText().toString());
         noteDTO.setNotePriority(priority);
+
         noteDTO.setNoteDate(timePicker.getPickedDate(datePicker.getPickedDate()));
+
         UserNote userNote = new UserNote();
         userNote.setNote(noteDTO);
         userNote.setUserId(SharedPreferencesUtility.getUserId(this));

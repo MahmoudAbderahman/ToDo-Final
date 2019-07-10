@@ -156,7 +156,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void validatePasswordFailed() {
-        mPasswordTextInput.setError(getString(R.string.error_invalid_password));
+        mPasswordTextInput.setError("Password must be 6 numbers");
         requestFocus(mPasswordTextInput);
     }
 

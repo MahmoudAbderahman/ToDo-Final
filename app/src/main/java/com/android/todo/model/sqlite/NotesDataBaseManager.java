@@ -91,6 +91,7 @@ public class NotesDataBaseManager {
             noteDTO.setNoteName(cursor.getString(1));
             noteDTO.setNoteDesc(cursor.getString(2));
             noteDTO.setNoteDate(cursor.getLong(3));
+
             noteDTO.setNoteState(cursor.getInt(4));
             noteDTO.setNotePriority(cursor.getInt(5));
 
