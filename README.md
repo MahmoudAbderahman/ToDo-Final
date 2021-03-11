@@ -25,3 +25,5 @@ App Icon
 ### Done item
 ![](img/finished_item.jpg)
 
+### Deleting item
+![](img/delete.jpeg)
